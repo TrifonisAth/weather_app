@@ -80,11 +80,11 @@ function load3HourData(forecast) {
   for (let i = 1; i < 9; i++) {
     const date = cards[i].querySelector(".date");
     const hour = cards[i].querySelector(".hour");
-    const temp = `cards[i].querySelector(".temp") &#8451`;
+    const temp = cards[i].querySelector(".temp");
     const icon = cards[i].querySelector(".icon");
     date.textContent = `${forecast.list[i].day}/${forecast.list[i].month}`;
     hour.textContent = forecast.list[i].time;
-    temp.textContent = forecast.list[i].temp;
+    temp.innerHTML = `${forecast.list[i].temp} &#8451`;
     icon.src = `images/fill/openweathermap/${forecast.list[i].icon}.svg`;
   }
   cityName.textContent = `${forecast.city}, ${forecast.country}`;
