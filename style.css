@@ -217,6 +217,7 @@ h2 {
 h1 {
   font-size: var(--big-font-size);
   text-shadow: -0.3rem 0.2rem 0.15rem black;
+  margin: var(--mb-2);
 }
 
 form {
@@ -363,4 +364,8 @@ form > button {
 
 p {
   text-align: center;
+}
+
+.hidden {
+  display: none;
 }

@@ -7,6 +7,8 @@ async function getData(city) {
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
     const data = await response.json();
     hideEl(loader);
+    display(mainCard);
+    display(secondaryCard);
     load3HourData(createForecastObject(data));
     console.log(data);
   } catch (err) {
@@ -18,13 +20,19 @@ function displayEl(el) {
   el.classList.add("show");
 }
 
+function display(el) {
+  el.classList.remove("hidden");
+}
+
 function hideEl(el) {
   el.classList.remove("show");
 }
 
-const loader = document.querySelector("#loading");
+const loader = document.getElementById("loading");
 const btn = document.querySelector("button");
 const input = document.querySelector("input");
+const mainCard = document.getElementById("main-card");
+const secondaryCard = document.getElementById("secondary-card");
 
 input.addEventListener("input", () => {
   input.setCustomValidity("");
