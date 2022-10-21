@@ -1,7 +1,7 @@
 async function getData(city) {
   try {
     const response = await fetch(
-      `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=a9f93b7135b2be992f9874b23570b0c9&lang=${language}&units=${units}`,
+      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=a9f93b7135b2be992f9874b23570b0c9&lang=${language}&units=${units}`,
       { mode: "cors" }
     );
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
