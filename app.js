@@ -7,11 +7,16 @@ async function getData(city) {
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
     const data = await response.json();
     hideEl(loader);
+    hide(errorMSG);
     display(mainCard);
     display(secondaryCard);
     load3HourData(createForecastObject(data));
     console.log(data);
   } catch (err) {
+    hide(mainCard);
+    hide(secondaryCard);
+    hideEl(loader);
+    display(errorMSG);
     console.log(err);
   }
 }
@@ -24,6 +29,10 @@ function display(el) {
   el.classList.remove("hidden");
 }
 
+function hide(el) {
+  el.classList.add("hidden");
+}
+
 function hideEl(el) {
   el.classList.remove("show");
 }
@@ -33,6 +42,7 @@ const btn = document.querySelector("button");
 const input = document.querySelector("input");
 const mainCard = document.getElementById("main-card");
 const secondaryCard = document.getElementById("secondary-card");
+const errorMSG = document.getElementById("msg-error");
 
 input.addEventListener("input", () => {
   input.setCustomValidity("");
