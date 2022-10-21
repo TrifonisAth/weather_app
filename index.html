@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="./app.js" defer></script>
+    <title>WeatherApp</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Weather App</h1>
+        <form>
+          <input
+            type="text"
+            placeholder="City name"
+            pattern="[a-zA-Z]+"
+            required
+          />
+          <button type="button">Search</button>
+        </form>
+        <div id="loading"></div>
+      </header>
+      <section id="main-card">
+        <div class="card-container">
+          <h2 class="city-name" id="city">Kineta, GR</h2>
+          <h3 class="time">14:16</h3>
+          <div class="container">
+            <div class="left">
+              <img
+                src="images/fill/openweathermap/01d.svg"
+                alt="weather icon"
+                class="weather-icon card"
+              />
+            </div>
+            <div class="right">
+              <h2 class="temp-now">20&#8451;</h2>
+              <h2 class="info">Clear sky</h2>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="secondary-card">
+        <div class="forecast">
+          <h3 id="city-name-2">Kineta, GR</h2>
+          <h3>Forecast</h2>
+          <div class="forecast-mode">
+            <div class="options">
+                <p  class="selected">Hourly</p>
+                <p>Daily</p>
+            </div>
+          </div>
+          <div class="cards cards-today">
+            <div class="card">
+                <h4 class="date"></h4>
+                <h4 class="hour">hour</h4>
+                <h3 class="temp">20&#8451;</h3>
+                <img class="icon" src="images/fill/openweathermap/09d.svg" alt="">
+            </div>
+            <div class="card">
+                <h4 class="date"></h4>
+                <h4 class="hour">hour</h4>
+                <h3 class="temp">20&#8451;</h3>
+                <img class="icon" src="images/fill/openweathermap/01d.svg" alt="">
+            </div>
+            <div class="card">
+                <h4 class="date"></h4>
+                <h4 class="hour">hour</h4>
+                <h3 class="temp">20&#8451;</h3>
+                <img class="icon" src="images/fill/openweathermap/10d.svg" alt="">
+            </div>
+            <div class="card">
+                <h4 class="date"></h4>
+                <h4 class="hour">hour</h4>
+                <h3 class="temp">20&#8451;</h3>
+                <img class="icon" src="images/fill/openweathermap/11d.svg" alt="">
+            </div>
+          </div>
+          <br>
+          <div class="cards cards-today">
+            <div class="card">
+                <h4 class="date"></h4>
+                <h4 class="hour">hour</h4>
+                <h3 class="temp">20&#8451;</h3>
+                <img class="icon" src="images/fill/openweathermap/02d.svg" alt="">
+            </div>
+            <div class="card">
+                <h4 class="date"></h4>
+                <h4 class="hour">hour</h4>
+                <h3 class="temp">20&#8451;</h3>
+                <img class="icon" src="images/fill/openweathermap/11d.svg" alt="">
+            </div>
+            <div class="card">
+                <h4 class="date"></h4>
+                <h4 class="hour">hour</h4>
+                <h3 class="temp">20&#8451;</h3>
+                <img class="icon" src="images/fill/openweathermap/13d.svg" alt="">
+            </div>
+            <div class="card">
+                <h4 class="date"></h4>
+                <h4 class="hour">hour</h4>
+                <h3 class="temp">20&#8451;</h3>
+                <img class="icon" src="images/fill/openweathermap/10d.svg" alt="">
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer id="footer">
+        <p>Thanos Trifonis</p>
+      </footer>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,366 @@
+/* 
+    CSS Reset
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* End of CSS Reset */
+
+/* Variables */
+:root {
+  --header-height: 3rem;
+  --font-bold: 600;
+  --font-medium: 500;
+  --basic-color: #0b5bd4;
+  --dark-color: #2a3b47;
+  --white-color: #fafaff;
+  --text-color: #697477;
+  --contrast-color: #9c42f2;
+  --body-font: "Nunito", sans-serif;
+  --big-font-size: 2rem;
+  --medium-font-size: 1.5rem;
+  --normal-font-size: 1rem;
+  --small-font-size: 0.8rem;
+  --mb-1: 0.5rem;
+  --mb-2: 1rem;
+  --mb-3: 1.5rem;
+  --mb-4: 2rem;
+  --mb-5: 2.5rem;
+  --z-fixed: 100;
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    --big-font-size: 6rem;
+    --medium-font-size: 1.3rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.8rem;
+  }
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  line-height: 1.3;
+  background: linear-gradient(to top, #1c4483 10%, #12b6ff 100%) fixed;
+  background-repeat: no-repeat;
+  color: var(--text-color);
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-medium);
+  /* min-height: 100vh; */
+  background-attachment: fixed;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+section {
+  padding: 1rem 0.5rem;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--white-color);
+  text-align: center;
+}
+
+h2 {
+  font-size: var(--medium-font-size);
+}
+
+h1 {
+  font-size: var(--big-font-size);
+  text-shadow: -0.3rem 0.2rem 0.15rem black;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--mb-3);
+}
+
+form > input {
+  margin-right: 1rem;
+  border: none;
+  border-radius: 1.5rem;
+  padding: 0 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px,
+    rgba(0, 0, 0, 0.05) 0px 5px 10px;
+}
+
+form > input:focus {
+  outline: none;
+}
+
+form > button {
+  border: none;
+  border-radius: 1.5rem;
+  background-color: var(--basic-color);
+  color: var(--white-color);
+  padding: 0.5rem 1rem;
+  font-size: var(--small-font-size);
+  font-weight: var(--font-bold);
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px,
+    rgba(0, 0, 0, 0.05) 0px 5px 10px;
+}
+
+#loading {
+  display: none;
+  width: 3rem;
+  height: 3rem;
+  border: 7px solid #f3f3f3;
+  border-top: 8px solid var(--contrast-color);
+  border-radius: 100%;
+  margin: auto;
+  animation: spin 0.4s infinite linear;
+}
+
+#loading.show {
+  display: block;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#main-card {
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.left {
+  width: 30%;
+}
+
+.left > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#secondary-card {
+  background-color: var(--white-color);
+  width: 95%;
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+
+.forecast > h3 {
+  color: var(--dark-color);
+  font-size: var(--medium-font-size);
+}
+
+.options {
+  margin: var(--mb-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 0.1rem solid var(--dark-color); */
+  border-radius: 1.5rem;
+  padding: 0 3rem;
+}
+
+.options > p {
+  font-size: var(--small-font-size);
+  font-weight: var(--font-bold);
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.options > p.selected {
+  background-color: var(--basic-color);
+  color: var(--white-color);
+}
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card > h3 {
+  color: var(--basic-color);
+  font-weight: var(--font-bold);
+}
+
+.card > img {
+  height: 6rem;
+}
+
+#footer {
+  margin-top: 3rem;
+  background-color: var(--dark-color);
+  width: 100%;
+  padding: 1rem;
+  align-content: center;
+}
+
+p {
+  text-align: center;
+}
