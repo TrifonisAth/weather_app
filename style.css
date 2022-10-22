@@ -369,3 +369,9 @@ p {
 .hidden {
   display: none;
 }
+
+footer > p {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
