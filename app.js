@@ -133,10 +133,12 @@ function loadData(forecast) {
     const date = cards[i].querySelector(".date");
     const hour = cards[i].querySelector(".hour");
     const temp = cards[i].querySelector(".temp");
+    const dets = cards[i].querySelector(".details");
     const icon = cards[i].querySelector(".icon");
     date.textContent = `${forecast.list[i].day}/${forecast.list[i].month}`;
     hour.textContent = forecast.list[i].time;
     temp.innerHTML = `${forecast.list[i].temp} &#8451`;
+    dets.textContent = forecast.list[i].description;
     icon.src = `images/fill/openweathermap/${forecast.list[i].icon}.svg`;
   }
   // Load daily forecast.
@@ -148,9 +150,11 @@ function loadData(forecast) {
     if (counter === 4) break;
     const date = cards[counter + 9].querySelector(".date");
     const temp = cards[counter + 9].querySelector(".temp");
+    const dets = cards[counter + 9].querySelector(".details");
     const icon = cards[counter + 9].querySelector(".icon");
     date.textContent = `${forecast.list[i].day}/${forecast.list[i].month}`;
     temp.innerHTML = `${forecast.list[i].temp} &#8451`;
+    dets.textContent = forecast.list[i].description;
     icon.src = `images/fill/openweathermap/${forecast.list[i].icon}.svg`;
     ++counter;
   }
