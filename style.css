@@ -217,7 +217,7 @@ h2 {
 h1 {
   font-size: var(--big-font-size);
   text-shadow: -0.3rem 0.2rem 0.15rem black;
-  margin: var(--mb-2);
+  margin: var(--mb-1);
 }
 
 form {
@@ -326,7 +326,7 @@ form > button {
   padding: 0.5rem 1rem;
 }
 
-.options > p.selected {
+.selected {
   background-color: var(--basic-color);
   color: var(--white-color);
 }

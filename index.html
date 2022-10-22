@@ -51,11 +51,11 @@
           <h3>Forecast</h2>
           <div class="forecast-mode">
             <div class="options">
-                <p  class="selected">Hourly</p>
-                <p>Daily</p>
+                <p  class="selected" id="hourly">3 Hours</p>
+                <p id="daily">Daily</p>
             </div>
           </div>
-          <div class="cards cards-today">
+          <div class="cards cards-today hidden">
             <div class="card">
                 <h4 class="date"></h4>
                 <h4 class="hour">hour</h4>
@@ -82,7 +82,7 @@
             </div>
           </div>
           <br>
-          <div class="cards cards-today">
+          <div class="cards cards-today hidden">
             <div class="card">
                 <h4 class="date"></h4>
                 <h4 class="hour">hour</h4>
@@ -108,9 +108,35 @@
                 <img class="icon" src="images/fill/openweathermap/10d.svg" alt="">
             </div>
           </div>
+          <div class="cards cards-daily hidden">
+            <div class="card">
+                <h4 class="date"></h4>
+                <h4 class="hour">hour</h4>
+                <h3 class="temp">20&#8451;</h3>
+                <img class="icon" src="images/fill/openweathermap/09d.svg" alt="">
+            </div>
+            <div class="card">
+                <h4 class="date"></h4>
+                <h4 class="hour">hour</h4>
+                <h3 class="temp">20&#8451;</h3>
+                <img class="icon" src="images/fill/openweathermap/01d.svg" alt="">
+            </div>
+            <div class="card">
+                <h4 class="date"></h4>
+                <h4 class="hour">hour</h4>
+                <h3 class="temp">20&#8451;</h3>
+                <img class="icon" src="images/fill/openweathermap/10d.svg" alt="">
+            </div>
+            <div class="card">
+                <h4 class="date"></h4>
+                <h4 class="hour">hour</h4>
+                <h3 class="temp">20&#8451;</h3>
+                <img class="icon" src="images/fill/openweathermap/11d.svg" alt="">
+            </div>
+          </div>
+
         </div>
       </section>
-      <section id="daily-card" class="hidden"></section>
       <footer id="footer" >
         <p>Thanos Trifonis</p>
       </footer>

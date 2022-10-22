@@ -1,4 +1,4 @@
-async function getData(city) {
+async function getData(city, mode) {
   try {
     const response = await fetch(
       `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=a9f93b7135b2be992f9874b23570b0c9&lang=${language}&units=${units}`,
@@ -10,7 +10,14 @@ async function getData(city) {
     hide(errorMSG);
     display(mainCard);
     display(secondaryCard);
-    load3HourData(createForecastObject(data));
+    if (mode === "3h") {
+      cardsToday.forEach((card) => card.classList.remove("hidden"));
+      cardsDaily.classList.add("hidden");
+      load3HourData(createForecastObject(data));
+    } else {
+      cardsToday.forEach((card) => card.classList.add("hidden"));
+      cardsDaily.classList.remove("hidden");
+    }
     console.log(data);
   } catch (err) {
     hide(mainCard);
@@ -43,6 +50,9 @@ const input = document.querySelector("input");
 const mainCard = document.getElementById("main-card");
 const secondaryCard = document.getElementById("secondary-card");
 const errorMSG = document.getElementById("msg-error");
+const cardsToday = document.querySelectorAll(".cards-today");
+const cardsDaily = document.querySelector(".cards-daily");
+const options = document.querySelector(".options");
 
 input.addEventListener("input", () => {
   input.setCustomValidity("");
@@ -60,12 +70,30 @@ input.addEventListener("invalid", () => {
 btn.addEventListener("click", () => {
   if (input.checkValidity()) {
     displayEl(loader);
-    getData(input.value);
+    getData(input.value, reportMode);
   } else console.log("error");
+});
+
+options.addEventListener("click", (e) => {
+  if (e.target.textContent === "3 Hours") {
+    reportMode = "3h";
+    e.target.nextElementSibling.classList.remove("selected");
+    e.target.classList.add("selected");
+    cardsToday.forEach((card) => card.classList.remove("hidden"));
+    cardsDaily.classList.add("hidden");
+  }
+  if (e.target.textContent === "Daily") {
+    reportMode = "24h";
+    e.target.previousElementSibling.classList.remove("selected");
+    e.target.classList.add("selected");
+    cardsToday.forEach((card) => card.classList.add("hidden"));
+    cardsDaily.classList.remove("hidden");
+  }
 });
 
 let units = "metric";
 let language = "el";
+let reportMode = "3h";
 
 // function to get forecast data from forecast api and create object
 function createForecastObject(data) {
