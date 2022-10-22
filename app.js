@@ -92,7 +92,7 @@ options.addEventListener("click", (e) => {
 });
 
 let units = "metric";
-let language = "el";
+let language = "en";
 let reportMode = "3h";
 
 // function to get forecast data from forecast api and create object
