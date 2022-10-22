@@ -67,12 +67,23 @@ input.addEventListener("invalid", () => {
   }
 });
 
-btn.addEventListener("click", () => {
+function btnEventHandler() {
   if (input.checkValidity()) {
     displayEl(loader);
     getData(input.value, reportMode);
   } else console.log("error");
-});
+}
+
+document.querySelector("form").addEventListener(
+  "submit",
+  function (e) {
+    e.preventDefault();
+    btnEventHandler();
+  },
+  false
+);
+
+btn.addEventListener("click", btnEventHandler);
 
 options.addEventListener("click", (e) => {
   if (e.target.textContent === "3 Hours") {
