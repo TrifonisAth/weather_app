@@ -10,10 +10,10 @@ async function getData(city, mode) {
     hide(errorMSG);
     display(mainCard);
     display(secondaryCard);
+    loadData(createForecastObject(data));
     if (mode === "3h") {
       cardsToday.forEach((card) => card.classList.remove("hidden"));
       cardsDaily.classList.add("hidden");
-      load3HourData(createForecastObject(data));
     } else {
       cardsToday.forEach((card) => card.classList.add("hidden"));
       cardsDaily.classList.remove("hidden");
@@ -114,15 +114,21 @@ function createForecastObject(data) {
   return forecast;
 }
 
-function load3HourData(forecast) {
+function loadData(forecast) {
   const cityName = document.querySelector("#city");
   const cityName2 = document.querySelector("#city-name-2");
   const time = document.querySelector(".time");
   const tempNow = document.querySelector(".temp-now");
   const description = document.querySelector(".info");
   const icon = document.querySelector(".weather-icon");
-
   const cards = document.querySelectorAll(".card");
+  cityName.textContent = `${forecast.city}, ${forecast.country}`;
+  cityName2.textContent = cityName.textContent;
+  time.textContent = forecast.list[0].time;
+  tempNow.innerHTML = `${forecast.list[0].temp} &#8451`;
+  description.textContent = forecast.list[0].description;
+  icon.src = `images/fill/openweathermap/${forecast.list[0].icon}.svg`;
+  // Load 3 hour forecast.
   for (let i = 1; i < 9; i++) {
     const date = cards[i].querySelector(".date");
     const hour = cards[i].querySelector(".hour");
@@ -133,10 +139,19 @@ function load3HourData(forecast) {
     temp.innerHTML = `${forecast.list[i].temp} &#8451`;
     icon.src = `images/fill/openweathermap/${forecast.list[i].icon}.svg`;
   }
-  cityName.textContent = `${forecast.city}, ${forecast.country}`;
-  cityName2.textContent = cityName.textContent;
-  time.textContent = forecast.list[0].time;
-  tempNow.innerHTML = `${forecast.list[0].temp} &#8451`;
-  description.textContent = forecast.list[0].description;
-  icon.src = `images/fill/openweathermap/${forecast.list[0].icon}.svg`;
+  // Load daily forecast.
+  const dayOfMonth = new Date().getDate();
+  let counter = 0;
+  for (let i = 9; i < forecast.list.length; i++) {
+    if (forecast.list[i].time !== "09:00" || forecast.list[i].day == dayOfMonth)
+      continue;
+    if (counter === 4) break;
+    const date = cards[counter + 9].querySelector(".date");
+    const temp = cards[counter + 9].querySelector(".temp");
+    const icon = cards[counter + 9].querySelector(".icon");
+    date.textContent = `${forecast.list[i].day}/${forecast.list[i].month}`;
+    temp.innerHTML = `${forecast.list[i].temp} &#8451`;
+    icon.src = `images/fill/openweathermap/${forecast.list[i].icon}.svg`;
+    ++counter;
+  }
 }
