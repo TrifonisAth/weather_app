@@ -18,7 +18,6 @@ async function getData(city, mode) {
       cardsToday.forEach((card) => card.classList.add("hidden"));
       cardsDaily.classList.remove("hidden");
     }
-    console.log(data);
   } catch (err) {
     hide(mainCard);
     hide(secondaryCard);
