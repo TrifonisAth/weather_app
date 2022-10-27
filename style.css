@@ -326,6 +326,12 @@ form > button {
   padding: 0.5rem 1rem;
 }
 
+.options > p:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: var(--white-color);
+}
+
 .selected {
   background-color: var(--basic-color);
   color: var(--white-color);
