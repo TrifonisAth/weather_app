@@ -157,7 +157,7 @@ function loadData(forecast) {
   for (let i = 9; i < forecast.list.length; i++) {
     if (forecast.list[i].time !== "09:00" || forecast.list[i].day == dayOfMonth)
       continue;
-    if (counter === 4) break;
+    if (counter === 3) break;
     const date = cards[counter + 9].querySelector(".date");
     const temp = cards[counter + 9].querySelector(".temp");
     const dets = cards[counter + 9].querySelector(".details");
